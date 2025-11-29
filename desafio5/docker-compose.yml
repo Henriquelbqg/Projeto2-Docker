@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  api_gateway:
+    build: ./api_gateway
+    container_name: desafio5_api_gateway
+    ports:
+      - "9000:5000"
+    depends_on:
+      - usuarios
+      - produtos
+    networks:
+      - minha-rede
+
+  usuarios:
+    build: ./servico_usuarios
+    container_name: desafio5_usuarios
+    ports:
+      - "5002:5000"
+    networks:
+      - minha-rede
+
+  produtos:
+    build: ./servico_produtos
+    container_name: desafio5_produtos
+    ports:
+      - "5003:5000"
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:

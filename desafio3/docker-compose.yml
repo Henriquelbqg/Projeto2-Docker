@@ -1,0 +1,35 @@
+services:
+  web:
+    build: ./web
+    container_name: desafio3-web
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - cache
+    networks:
+      - rede-interna
+
+  db:
+    image: postgres:16
+    container_name: desafio3-db
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: meu_banco
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-volume:/var/lib/postgresql
+    networks:
+      - rede-interna
+
+  cache:
+    image: redis:7
+    container_name: desafio3-cache
+    networks:
+      - rede-interna
+
+volumes:
+  db-volume:
+
+networks:
+  rede-interna:

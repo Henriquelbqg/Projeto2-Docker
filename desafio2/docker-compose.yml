@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: desafio2-db-1
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: meu_banco
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - meu-volume:/var/lib/postgresql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+volumes:
+  meu-volume:

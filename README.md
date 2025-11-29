@@ -1,4 +1,4 @@
-# **Projeto 2 FCCPD: Sistemas Distribuídos com Docker, Microserviços e Redes**
+# **Projeto: Sistemas Distribuídos com Docker, Microserviços e Redes**
 
 ## **Visão Geral**
 
